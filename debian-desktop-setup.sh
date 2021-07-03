@@ -18,12 +18,9 @@ fi
 read -p "Are you using ubuntu os? (Y/n): " isUbuntuOs
 isUbuntuOs="${isUbuntuOs,,}" # to lowercase string
 
-installingDocker=1
+osVersion="debian"
 if [[ "$isUbuntuOs" == "y" ]]; then
-    echo -e "${GREEN}We will be installing docker & docker-compose during this script...${NC}"
-else
-    installingDocker=0
-    echo -e "${GREEN}We will skip installing docker & docker-compose during this script...${NC}"
+    osVersion="ubuntu"
 fi
 
 echo -e "${GREEN}Updating, upgradng & autoremoving...${NC}"
@@ -73,15 +70,11 @@ echo -e "${GREEN}Downloading dbeaver...${NC}"
 dbeaverPath="$installPath/dbeaver-ce_latest_amd64.deb"
 dpkgPackages+=("$dbeaverPath")
 wget "https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb" -P "$installPath"
-#echo -e "${GREEN}Installing dbeaver...${NC}"
-#sudo rm /var/lib/dpkg/lock && sudo rm /var/lib/apt/lists/lock && sudo dpkg -i "$dbeaverPath" && apt install -fy
 
 echo -e "${GREEN}Downloading slack...${NC}"
 slackPath="$installPath/slack-desktop-4.16.0-amd64.deb"
 dpkgPackages+=("$slackPath")
 wget "https://downloads.slack-edge.com/linux_releases/slack-desktop-4.16.0-amd64.deb" -P "$installPath"
-#echo -e "${GREEN}Installing slack...${NC}"
-#sudo dpkg -i "$slackPath" && apt install -fy
 
 echo -e "${GREEN}Downloading zoom...${NC}"
 zoomPath="$installPath/zoom_amd64.deb"
@@ -108,15 +101,22 @@ tar xvzf go1.16.5.linux-amd64.tar.gz \
 rm "$installPath/go1.16.5.linux-amd64.tar.gz"
 sudo mv "$installPath/go /usr"
 
-if [[ "$installingDocker" == 1 ]]; then
-    echo -e "${GREEN}Installing docker...${NC}"
+echo -e "${GREEN}Installing docker...${NC}"
+if [[ "$osVersion" == "debian" ]]; then
+    sudo apt-get install -y \
+        docker \
+        docker-compose
+    
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+elif [[ "$osVersion" == "ubuntu" ]]; then
     sudo apt-get purge -y docker \
         docker-engine \
         docker.io \
         containerd \
         runc
     
-    sudo apt-get update
+    sudo apt-get update -y
 
     sudo apt-get install -y apt-transport-https \
         ca-certificates \
@@ -131,7 +131,7 @@ if [[ "$installingDocker" == 1 ]]; then
         "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
         $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-    sudo apt-get update
+    sudo apt-get update -y
     
     sudo apt-get install -y docker-ce \
         docker-ce-cli \
@@ -161,7 +161,6 @@ for manualInstallTool in "${manualInstallTools[@]}"
         echo -e "- $manualInstallTool"
     done
 
-# print sudo run message
 echo -e "${GREEN}Run the following as root...${NC}"
 printf "${LIGHTGRAY}\tsudo dpkg -i  \\"
 
