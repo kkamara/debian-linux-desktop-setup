@@ -61,9 +61,11 @@ php -r "unlink('composer-setup.php');"
 mv composer.phar /usr/bin/composer
 
 echo -e "${GREEN}Downloading xampp...${NC}"
-xamppPath="$installPath/xampp-linux-x64-8.0.7-0-setuper.run"
+xamppPath="$installPath/xampp.run"
 forParallelProcessing+=("nohup $xamppPath &")
-wget https://www.apachefriends.org/xampp-files/8.0.7/xampp-linux-x64-8.0.7-0-setuper.run -P "$installPath"
+wget  \
+    https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/8.0.7/xampp-linux-x64-8.0.7-0-installer.run/download \
+    -O "$xamppPath"
 chmod +x "$xamppPath"
 
 echo -e "${GREEN}Downloading dbeaver...${NC}"
