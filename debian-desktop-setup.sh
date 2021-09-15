@@ -15,6 +15,8 @@ if [[ "$USER" == "root" ]]; then
     exit 1
 fi
 
+echo "${YELLOW}Benchmarking #1: $( date )${NC}"
+
 read -p "Are you using ubuntu os? (Y/n): " isUbuntuOs
 isUbuntuOs="${isUbuntuOs,,}" # to lowercase string
 
@@ -179,3 +181,7 @@ for toProcess in "${forParallelProcessing[@]}"
 	done
 
 printf "\n${NC}"
+
+
+echo "${YELLOW}Benchmarking #2: $( date )${NC}"
+
