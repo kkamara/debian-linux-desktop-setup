@@ -66,7 +66,7 @@ echo -e "${GREEN}Downloading xampp...${NC}"
 xamppPath="$installPath/xampp.run"
 forParallelProcessing+=("nohup $xamppPath &")
 wget  \
-    https://sourceforge.net/projects/xampp/files/XAMPP%20Linux/8.0.7/xampp-linux-x64-8.0.7-0-installer.run/download \
+	https://downloads.sourceforge.net/project/xampp/XAMPP%20Linux/8.1.2/xampp-linux-x64-8.1.2-0-installer.run?ts=gAAAAABh9YTvoxEFsBz94xuVKLhKjhFnBx2PoteubaMJt-7RDlMiubjRTQHU4wKPb6SR2YzIom9JJ89U9KUIG4YON2MhJmcRcw%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fxampp%2Ffiles%2FXAMPP%2520Linux%2F8.1.2%2Fxampp-linux-x64-8.1.2-0-installer.run%2Fdownload \
     -O "$xamppPath"
 chmod +x "$xamppPath"
 
@@ -86,9 +86,9 @@ dpkgPackages+=("$zoomPath")
 wget https://zoom.us/client/latest/zoom_amd64.deb -P "$installPath"
 
 echo -e "${GREEN}Downloading mega...${NC}"
-megaPath="$installPath/megasync_4.4.0-1.1_amd64.deb"
+megaPath="$installPath/megasync_4.6.3-4.1_amd64.deb"
 dpkgPackages+=("$megaPath")
-wget "https://mega.nz/linux/MEGAsync/xUbuntu_16.04/amd64/megasync_4.4.0-1.1_amd64.deb" -P "$installPath"
+wget "https://mega.nz/linux/repo/xUbuntu_20.04/amd64/megasync_4.6.3-4.1_amd64.deb" -P "$installPath"
 
 echo -e "${GREEN}Installing spotify...${NC}"
 sudo snap install spotify
