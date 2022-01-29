@@ -85,6 +85,11 @@ zoomPath="$installPath/zoom_amd64.deb"
 dpkgPackages+=("$zoomPath")
 wget https://zoom.us/client/latest/zoom_amd64.deb -P "$installPath"
 
+echo -e "${GREEN}Downloading teams...${NC}"
+teamsPath="$installPath/teams_amd64.deb"
+dpkgPackages+=("$teamsPath")
+wget https://go.microsoft.com/fwlink/p/?LinkID=2112886&clcid=0x809&culture=en-gb&country=GB -P "$installPath"
+
 echo -e "${GREEN}Downloading mega...${NC}"
 megaPath="$installPath/megasync_4.6.3-4.1_amd64.deb"
 dpkgPackages+=("$megaPath")
