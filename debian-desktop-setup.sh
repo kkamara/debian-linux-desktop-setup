@@ -66,8 +66,8 @@ echo -e "${GREEN}Downloading xampp...${NC}"
 xamppPath="$installPath/xampp.run"
 forParallelProcessing+=("nohup $xamppPath &")
 wget  \
-	https://downloads.sourceforge.net/project/xampp/XAMPP%20Linux/8.1.2/xampp-linux-x64-8.1.2-0-installer.run?ts=gAAAAABh9YTvoxEFsBz94xuVKLhKjhFnBx2PoteubaMJt-7RDlMiubjRTQHU4wKPb6SR2YzIom9JJ89U9KUIG4YON2MhJmcRcw%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fxampp%2Ffiles%2FXAMPP%2520Linux%2F8.1.2%2Fxampp-linux-x64-8.1.2-0-installer.run%2Fdownload \
-    -O "$xamppPath"
+	"https://downloads.sourceforge.net/project/xampp/XAMPP%20Linux/8.1.2/xampp-linux-x64-8.1.2-0-installer.run?ts=gAAAAABh9YTvoxEFsBz94xuVKLhKjhFnBx2PoteubaMJt-7RDlMiubjRTQHU4wKPb6SR2YzIom9JJ89U9KUIG4YON2MhJmcRcw%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fxampp%2Ffiles%2FXAMPP%2520Linux%2F8.1.2%2Fxampp-linux-x64-8.1.2-0-installer.run%2Fdownload" \
+    -P "$xamppPath"
 chmod +x "$xamppPath"
 
 echo -e "${GREEN}Downloading dbeaver...${NC}"
@@ -88,7 +88,7 @@ wget https://zoom.us/client/latest/zoom_amd64.deb -P "$installPath"
 echo -e "${GREEN}Downloading teams...${NC}"
 teamsPath="$installPath/teams_amd64.deb"
 dpkgPackages+=("$teamsPath")
-wget https://go.microsoft.com/fwlink/p/?LinkID=2112886&clcid=0x809&culture=en-gb&country=GB -P "$installPath"
+wget "https://go.microsoft.com/fwlink/p/?LinkID=2112886&clcid=0x809&culture=en-gb&country=GB" -P "$installPath"
 
 echo -e "${GREEN}Downloading mega...${NC}"
 megaPath="$installPath/megasync_4.6.3-4.1_amd64.deb"
