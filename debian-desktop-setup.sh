@@ -63,10 +63,10 @@ php -r "unlink('composer-setup.php');"
 mv composer.phar /usr/bin/composer
 
 echo -e "${GREEN}Downloading xampp...${NC}"
-xamppPath="$installPath/xampp.run"
-forParallelProcessing+=("nohup $xamppPath &")
+xamppPath="$installPath"
+forParallelProcessing+=("nohup $xamppPath/xampp-linux-x64-8.0.17-1-installer.run &")
 wget  \
-	"https://downloads.sourceforge.net/project/xampp/XAMPP%20Linux/8.1.2/xampp-linux-x64-8.1.2-0-installer.run?ts=gAAAAABh9YTvoxEFsBz94xuVKLhKjhFnBx2PoteubaMJt-7RDlMiubjRTQHU4wKPb6SR2YzIom9JJ89U9KUIG4YON2MhJmcRcw%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fxampp%2Ffiles%2FXAMPP%2520Linux%2F8.1.2%2Fxampp-linux-x64-8.1.2-0-installer.run%2Fdownload" \
+	"https://www.apachefriends.org/xampp-files/8.0.17/xampp-linux-x64-8.0.17-1-installer.run" \
     -P "$xamppPath"
 chmod +x "$xamppPath"
 
