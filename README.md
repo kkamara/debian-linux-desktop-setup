@@ -12,7 +12,7 @@ Automates the installation of common tools and packages for debian-based linux d
 * rar
 * zip
 * composer
-* xampp
+* php
 * dbeaver
 * slack
 * zoom

@@ -43,6 +43,7 @@ packageTools=(
     rar
     zip
     net-tools
+    php8.0-fpm
 )
 for packageTool in "${packageTools[@]}"
     do :
@@ -62,14 +63,6 @@ php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
 mv composer.phar /usr/bin/composer
-
-echo -e "${GREEN}Downloading xampp...${NC}"
-xamppPath="$installPath"
-forParallelProcessing+=("nohup $xamppPath/xampp-linux-x64-8.0.17-1-installer.run &")
-wget  \
-	"https://www.apachefriends.org/xampp-files/8.0.17/xampp-linux-x64-8.0.17-1-installer.run" \
-    -P "$xamppPath"
-chmod +x "$xamppPath"
 
 echo -e "${GREEN}Downloading dbeaver...${NC}"
 dbeaverPath="$installPath/dbeaver-ce_latest_amd64.deb"
