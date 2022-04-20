@@ -44,6 +44,9 @@ packageTools=(
     zip
     net-tools
     php8.0-fpm
+    php8.0-curl
+    php8.0-zip
+    php8.0-dom
 )
 for packageTool in "${packageTools[@]}"
     do :
