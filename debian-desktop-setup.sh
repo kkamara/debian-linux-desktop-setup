@@ -85,11 +85,6 @@ zoomPath="$installPath/zoom_amd64.deb"
 dpkgPackages+=("$zoomPath")
 wget https://zoom.us/client/latest/zoom_amd64.deb -P "$installPath"
 
-echo -e "${GREEN}Downloading mega...${NC}"
-megaPath="$installPath/megasync_4.6.3-4.1_amd64.deb"
-dpkgPackages+=("$megaPath")
-wget "https://mega.nz/linux/repo/xUbuntu_20.04/amd64/megasync_4.6.3-4.1_amd64.deb" -P "$installPath"
-
 echo -e "${GREEN}Installing spotify...${NC}"
 sudo snap install spotify
 
@@ -159,6 +154,7 @@ manualInstallTools=(
     "discord https://discord.com/download"
     "postman https://www.postman.com/downloads/"
     "vscode https://code.visualstudio.com/download"
+    "mega https://mega.nz/linux/repo/"
     "teams https://www.microsoft.com/en-gb/microsoft-teams/download-app"
 )
 for manualInstallTool in "${manualInstallTools[@]}"
