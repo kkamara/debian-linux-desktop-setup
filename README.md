@@ -28,3 +28,4 @@ Automates the installation of common tools and packages for debian-based linux d
 * discord
 * postman
 * vscode
+* net-tools

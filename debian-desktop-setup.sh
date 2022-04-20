@@ -42,6 +42,7 @@ packageTools=(
     neofetch
     rar
     zip
+    net-tools
 )
 for packageTool in "${packageTools[@]}"
     do :
