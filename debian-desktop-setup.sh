@@ -30,6 +30,9 @@ sudo apt-get update -y &&
     sudo apt-get upgrade -y &&
     sudo apt-get autoremove -y
 
+echo -e "${GREEN}Adding repository cache: ppa:ondrej/php...${NC}"
+sudo add-apt-repository ppa:ondrej/php -y
+
 echo -e "${GREEN}Downloading package tools...${NC}"
 packageTools=(
     wget
