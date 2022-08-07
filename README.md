@@ -1,4 +1,4 @@
-# debian-desktop-setup
+# debian-linux-desktop-setup
 Automates the installation of common tools and packages for debian-based linux distros.
 
 * wget
