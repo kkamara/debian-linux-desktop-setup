@@ -20,7 +20,6 @@ Automates the installation of common tools and packages for debian-based linux d
 * mega
 * spotify
 * nvm
-* golang
 * docker
 * docker-compose
 * chrome

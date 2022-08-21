@@ -91,15 +91,6 @@ sudo snap install spotify
 echo -e "${GREEN}Installing nvm...${NC}"
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 
-echo -e "${GREEN}Downloading golang...${NC}"
-wget https://golang.org/dl/go1.16.5.linux-amd64.tar.gz \
-    -P "$installPath"
-echo -e "${GREEN}Installing golang...${NC}"
-tar xvzf go1.16.5.linux-amd64.tar.gz \
-    -C "$installPath"
-rm "$installPath/go1.16.5.linux-amd64.tar.gz"
-sudo mv "$installPath/go /usr"
-
 echo -e "${GREEN}Installing docker...${NC}"
 if [[ "$osVersion" == "debian" ]]; then
     sudo apt-get install -y \
