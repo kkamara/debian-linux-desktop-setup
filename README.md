@@ -1,5 +1,5 @@
 # debian-linux-desktop-setup
-Automates the installation of common tools and packages for debian-based Linux distros.
+Automates the installation of common tools and packages for Debian-based Linux distros.
 
 * wget
 * exo-utils
